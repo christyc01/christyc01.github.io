@@ -1,43 +1,83 @@
-var isInViewport = function (elem) {
-  var bounding = elem.getBoundingClientRect();
+const summary = document.querySelector('.summary-inside-container');
+const education = document.querySelector('.education-inside-container');
+const projects = document.querySelector('.projects-inside-container');
+const individualProject = document.querySelector('.individual-project');
+const contact = document.querySelector('.contact-inside-container');
+
+const navigation = document.querySelector(".navigation");
+const summaryLink = document.querySelector(".summary-link");
+const educationLink = document.querySelector(".education-link");
+const projectsLink = document.querySelector(".projects-link");
+const contactLink = document.querySelector(".contact-link");
+
+const isInViewport = function (elem) {
+  const bounding = elem.getBoundingClientRect();
   // console.log(scrollY)
   return (
-    bounding.top >= 0 &&
+    bounding.top >= 100 &&
     bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) 
     );
 };
 
-var summary = document.querySelector('.summary-inside-container');
-var education = document.querySelector('.education-inside-container');
-var projects = document.querySelector('.projects-inside-container');
-var individualProject = document.querySelector('.individual-project');
-var contact = document.querySelector('.contact-inside-container');
 
 document.getElementById('body').onscroll = function scrollEvent(e) {
+  console.log("scroll e: ", e)
+  // console.log('e.srcElement.location.hash: ', e.srcElement.location.hash)
   if (isInViewport(summary)) {
-    document.querySelector(".summary-link").classList.add("active-link");
-    document.querySelector(".education-link").classList.remove("active-link");
-    document.querySelector(".projects-link").classList.remove("active-link");
-    document.querySelector(".contact-link").classList.remove("active-link");
+    summaryLink.classList.add("active-link");
+    educationLink.classList.remove("active-link");
+    projectsLink.classList.remove("active-link");
+    contactLink.classList.remove("active-link");
   }
   else if ((!isInViewport(summary)) && (isInViewport(education))) {
-    document.querySelector(".summary-link").classList.remove("active-link");
-    document.querySelector(".education-link").classList.add("active-link");
-    document.querySelector(".projects-link").classList.remove("active-link");
-    document.querySelector(".contact-link").classList.remove("active-link");
+    summaryLink.classList.remove("active-link");
+    educationLink.classList.add("active-link");
+    projectsLink.classList.remove("active-link");
+    contactLink.classList.remove("active-link");
   }
-  else if ((isInViewport(projects)) || (isInViewport(individualProject))) {
-    document.querySelector(".summary-link").classList.remove("active-link");
-    document.querySelector(".education-link").classList.remove("active-link");
-    document.querySelector(".projects-link").classList.add("active-link");
-    document.querySelector(".contact-link").classList.remove("active-link");
-    console.log("projects is in viewport")
+  else if (
+    // (!isInViewport(education)) && (
+      (isInViewport(projects)) || (isInViewport(individualProject)))
+      // ) 
+      {
+    summaryLink.classList.remove("active-link");
+    educationLink.classList.remove("active-link");
+    projectsLink.classList.add("active-link");
+    contactLink.classList.remove("active-link");
   }
-    else if ((window.innerHeight + document.documentElement.scrollTop) >= document.body.scrollHeight) {
-    document.querySelector(".summary-link").classList.remove("active-link");
-    document.querySelector(".education-link").classList.remove("active-link");
-    document.querySelector(".projects-link").classList.remove("active-link");
-    document.querySelector(".contact-link").classList.add("active-link");
-    console.log("contact is in viewport")
+  else if ((window.innerHeight + document.documentElement.scrollTop) >= document.body.scrollHeight) {
+    summaryLink.classList.remove("active-link");
+    educationLink.classList.remove("active-link");
+    projectsLink.classList.remove("active-link");
+    contactLink.classList.add("active-link");
   }
 }
+
+function makeActive(e) {
+  summaryLink.classList.remove("active-link");
+  educationLink.classList.remove("active-link");
+  projectsLink.classList.remove("active-link");
+  contactLink.classList.remove("active-link");
+  console.log("summaryLink.classList: ", summaryLink.classList)
+  console.log("educationLink.classList: ", educationLink.classList)
+  console.log("projectsLink.classList: ", projectsLink.classList)
+  console.log("contactLink.classList: ", contactLink.classList)
+  // console.log(document.querySelector(e))
+  console.log((e.target.classList.value))
+  if (e.target.classList.contains('summary-link')) {
+    summaryLink.classList.add("active-link");
+  }
+  else if (e.target.classList.contains('education-link')) {
+    educationLink.classList.add("active-link");
+  }
+  else if (e.target.classList.contains('projects-link')) {
+    projectsLink.classList.add("active-link");
+    summaryLink.classList.remove("active-link");
+    educationLink.classList.remove("active-link");
+    contactLink.classList.remove("active-link");
+  }
+  else if (e.target.classList.contains('contact-link')) {
+    contactLink.classList.add("active-link");
+  }
+}
+navigation.addEventListener('click', makeActive);

@@ -249,7 +249,9 @@ section::before {
 
 .navigation li {
   padding: 5px 30px;
+  margin-right: 20px;
   list-style: none;
+  color: var(--dark-green);
 }
 
 .active-link,
