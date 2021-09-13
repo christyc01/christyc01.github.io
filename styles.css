@@ -30,7 +30,7 @@ h2 {
 /****************** HEADER *******************/
 .name-section {
   display: flex;
-  flex-direction: row;
+  /* flex-direction: row; */
   align-items: center;
   padding: 20px 0;
   background-color: var(--light-background);
@@ -39,6 +39,11 @@ h2 {
   height: 165px;
   z-index: 5;
   border-bottom: 5px solid var(--dark-grey);
+}
+
+.name-section-img-text-contact {
+  display: flex;
+  flex-direction: row;
 }
 
 .name-section img {
@@ -83,12 +88,13 @@ h2 {
 
 .navigation a {
   text-decoration: none;
-  color: var(--dark-green);
   font-size: 1.2rem;
 }
 
 .navigation li {
-  padding: 5px 30px;
+  padding: 3px 30px;
+  margin-top: 1px;
+  margin-bottom: 1px;
   margin-right: 20px;
   list-style: none;
   color: var(--dark-green);
@@ -97,6 +103,7 @@ h2 {
 .active-link,
 .navigation li:hover {
   background-color: var(--dark-grey);
+  color: var(--light-background) !important;
   border-radius: 5px;
 }
 
@@ -120,7 +127,8 @@ h2 {
 
 .individual-education li {
   font-size: 1.15rem;
-  list-style-position: inside;
+  margin-left: 20px;
+  list-style-position: outside;
 }
 
 .individual-project {
@@ -142,7 +150,7 @@ h2 {
   padding: 10px 0;
 }
 
-.project-image {
+.project-image img {
   width: 550px;
   height: 310px;
   overflow: hidden;
@@ -160,14 +168,16 @@ h2 {
 
 .project-text a {
   text-decoration: none;
-  color: var(--dark-grey);
+  color: var(--light-background);
   background-color: var(--dark-green);
-  padding: 5px;
   border-radius: 5px;
+  padding: 3px;
+  margin: 1px;
+  font-weight: normal;
 }
 
 .project-text a:hover {
-  color: var(--light-background);
+  color: var(--light-green);
 }
 
 .project-title {
@@ -217,6 +227,14 @@ section::before {
   pointer-events: none;
 }
 
+/****************** FOOTER *******************/
+.footer-inside-container {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/****************** RESPONSIVENESS *******************/
 @media screen and (max-width: 875px) {
   .individual-project {
     grid-template-columns: 1fr;
@@ -229,9 +247,63 @@ section::before {
     padding: 40px 40px;
   }
 }
-/****************** FOOTER *******************/
-.footer-inside-container {
-  padding: 20px;
-  display: flex;
-  justify-content: center;
+
+@media screen and (max-width: 500px) {
+  h1 {
+    font-size: 1.5rem;
+    padding-top: 0;
+  }
+  .contact-icon-container i {
+    font-size: 2rem;
+    padding: 5px 20px;
+  }
+  .first-section {
+    padding-top: 0px !important;
+  }
+  .individual-project {
+    justify-items: center;
+    padding: 5px;
+  }
+  .job-title {
+    padding: 0 20px 10px 20px;
+    font-size: 1.15rem;
+  }
+  .name-section {
+    display: flex;
+    flex-direction: column;
+    height: 230px;
+    position: relative;
+  }
+  .name-section-text {
+    display: flex;
+    align-items: center;
+  }
+  .name-section img {
+    width: 100px;
+    margin: 10px;
+  }
+  .navigation {
+    display: none;
+  }
+  .projects-inside-container {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .project-image img {
+    width: 300px;
+    height: auto;
+    margin-top: 10px;
+    overflow: hidden;
+    border: 8px solid var(--dark-grey);
+    border-radius: 10px;
+  }
+  .project-text {
+    padding: 0;
+  }
+  .summary-inside-container, 
+  .education-inside-container, 
+  .projects-inside-container,
+  .footer-inside-container  {
+    padding: 0 20px;
+  }
 }
