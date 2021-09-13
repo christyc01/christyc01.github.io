@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Portfolio</title>
   <link rel="stylesheet" href="./styles.css">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body id="body">
   <div class="name-section">
@@ -15,13 +17,28 @@
     <div class="name-section-text">
       <h1>Christy Clement</h1>
       <p class="below-h1">Full Stack Developer | Technical Editor</p>
+      <div class="contact-icon-container">
+        <a href="https://github.com/christyc01">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="mailto:christyclement001@gmail.com">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://twitter.com/christy_codes">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <!-- <i class="fab fa-codepen"></i> -->
+        <a href="https://www.linkedin.com/in/christy-clement/">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
     </div>
     <div class="navigation">
       <ul>
         <a href="#summary"><li class="summary-link active-link">Summary</li></a>
         <a href="#education"><li class="education-link">Education</li></a>
         <a href="#projects"><li class="projects-link">Projects</li></a>
-        <a href="#contact"><li class="contact-link">Contact</li></a>
+        <!-- <a href="#contact"><li class="contact-link">Contact</li></a> -->
       </ul>
     </div>
   </div>
@@ -38,8 +55,41 @@
   <section class="section education" id="education">
     <div class="education-inside-container">
       <h2>Education</h2>
-      <p class="bold">Full Stack Developer (Learner) - InceptionU Ltd. - 2021</p>
-      <p>Project-based learning focusing on the MERN stack (MongoDB, Express, React, and Node). Individual and team projects, from rough concepts to completed apps. Essential skills such as critical thinking, visual thinking, and problem solving.</p>
+      <div class="individual-education">
+        <p class="bold">Full Stack Developer (Learner) - InceptionU Ltd. - 2021</p>
+        <p>Six months of project-based learning focusing on the MERN stack (MongoDB, Express, React, and Node). Individual and team projects, from rough concepts to completed apps. Essential skills such as critical thinking, visual thinking, and problem solving.</p>
+      </div>
+      <div class="individual-education">
+        <p class="bold">Udemy Courses</p>
+        <ul>
+          <li>
+            <a href="https://www.udemy.com/course/the-complete-web-development-bootcamp/">The Complete 2021 Web Development Bootcamp - In Progress</a>
+          </li>
+          <li>
+            <a href="https://www.udemy.com/course/the-complete-web-developer-zero-to-mastery/">The Complete Web Developer in 2021: Zero to Mastery - In Progress</a>
+          </li>
+          <li>
+            <a href="https://www.udemy.com/course/just-express-with-a-bunch-of-node-and-http-in-detail/?src=sac&kw=just+express+%28with">Just Express (with a bunch of node and http) - In Progress</a>
+          </li>
+          <li>
+            <a href="https://www.udemy.com/course/understand-nodejs/">Learn and Understand NodeJS - 2021</a> 
+          </li>
+          <li>
+            <a href="https://www.udemy.com/course/comprendre-javascript/">Vraiment Bien Comprendre JavaScript - 2021</a>
+          </li>
+          <li>
+            <a href="https://www.udemy.com/course/build-interactive-websites-1/">DOM 2020 Build Dynamic Websites with JavaScript Part 1 - 2020</a>
+          </li>
+          <li>
+            <a href="https://www.udemy.com/course/build-dynamic-websites-dom-2/">DOM 2020 Build Dynamic Websites with JavaScript Part 2 - 2020</a>
+          </li>
+          <li>
+            <a href="https://www.udemy.com/course/modern-html-css-from-the-beginning/">
+              Modern HTML & CSS from the Beginning (Including Sass) - 2020
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   </section>
   <section class="section projects" id="projects">
@@ -48,10 +98,10 @@
       <div class="projects">
         <div class="individual-project">
           <div class="project-image">
-            <img src="./img/hive.gif" alt="Hive survey app">
+            <img src="./img/hive.gif" alt="Survey Management App">
           </div>
           <div class="project-text">
-            <p class="project-title">Hive Survey App | <a href="https://github.com/fjjes/project3-Hive">GitHub</a></p>
+            <p class="project-title"><span class="project-title-spacing">Survey Management App</span> <a href="https://github.com/fjjes/project3-Hive">GitHub</a></p>
             <p class="project-description">
               Created customizable survey question components, integrated drag and drop, form validation logic, CRUD operations, passed and manipulated information using global state, plotted locations on a map, data visualization, design and styling, daily stand-ups with the development team, weekly sprint planning and demos for our client, incorporated changes based on feedback, created and assigned user stories.
             </p>
@@ -60,10 +110,10 @@
         </div>
         <div class="individual-project">
           <div class="project-image">
-            <img src="./img/growCalgary.gif" alt="Grow Calgary gardening app">
+            <img src="./img/growCalgary.gif" alt="Community Gardening App">
           </div>
           <div class="project-text">
-            <p class="project-title">Grow Calgary Gardening App | <a href="https://github.com/bwbcode/community-garden-app">GitHub</a></p>
+            <p class="project-title"><span class="project-title-spacing">Community Gardening App</span> <a href="https://github.com/bwbcode/community-garden-app">GitHub</a></p>
             <p class="project-description">
               Incorporated secure user signup and authentication, created individual garden pages, stored and accessed data in the database, form validation, design and styling, messaging using a customized library.
             </p>
@@ -72,10 +122,10 @@
         </div>
         <div class="individual-project">
           <div class="project-image">
-            <img src="./img/mapGame.gif" alt="Hive survey app">
+            <img src="./img/mapGame.gif" alt="Hackathon Map Game">
           </div>
           <div class="project-text">
-            <p class="project-title">Hackathon Map Game | <a href="https://github.com/nikigeor/hackaton-map-game">GitHub</a></p>
+            <p class="project-title"><span class="project-title-spacing">Hackathon Map Game</span> <a href="https://github.com/nikigeor/hackaton-map-game">GitHub</a></p>
             <p class="project-description">Plotted locations on a map, game logic, styling and special effects.</p>
             <p class="project-tags">Node.js | Express | MongoDB | Mongoose | React | Leaflet | OpenStreetMap</p>
           </div>
@@ -83,12 +133,17 @@
       </div>
     </div>
   </section>
-  <section class="section" id="contact">
+  <!-- <section class="section contact" id="contact">
     <div class="contact-inside-container">
       <h2>Contact</h2>
       <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore, rerum.</p>
     </div>
-  </section>
+  </section> -->
+  <footer class="section footer" id="footer">
+    <div class="footer-inside-container">
+      <small>&copy; 2021 Christy Clement</small>
+    </div>
+  </footer>
   <script src="script.js"></script>
 </body>
 </html>
