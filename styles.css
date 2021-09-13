@@ -97,7 +97,7 @@ h2 {
   margin-bottom: 1px;
   margin-right: 20px;
   list-style: none;
-  color: var(--dark-green);
+  color: var(--dark-grey);
 }
 
 .active-link,
@@ -108,16 +108,23 @@ h2 {
 }
 
 /****************** BODY SECTIONS *******************/
+.emoji {
+  text-shadow: 0px 0px 3px black;
+}
+
 .first-section {
   padding-top: 210px !important;
   display: block;
 }
 
-.individual-education a {
+.individual-education a,
+.summary a {
   text-decoration: none;
+  font-weight: bold;
 }
 
-.individual-education a:hover {
+.individual-education a:hover,
+.summary a:hover {
   color: var(--dark-green);
 }
 
@@ -144,10 +151,6 @@ h2 {
 
 .individual-project:last-child {
   border-bottom: none;
-}
-
-.italic {
-  font-style: italic;
 }
 
 .project-description {
@@ -252,6 +255,16 @@ section::before {
   }
 }
 
+@media screen and (max-width: 925px) 
+              and (orientation: landscape) {
+  .first-section {
+    padding-top: 0px !important;
+  }
+  .name-section {
+    position: relative;
+  }
+}
+
 @media screen and (max-width: 700px) {
   .individual-project {
     padding: 20px 0;
@@ -296,7 +309,6 @@ section::before {
   }
   .individual-project {
     justify-items: center;
-    padding: 5px;
   }
   .job-title {
     padding: 0 20px 10px 20px;
@@ -317,8 +329,8 @@ section::before {
     margin: 10px;
   }
   .projects-inside-container {
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
   }
   .project-image img {
     width: 300px;
@@ -331,6 +343,39 @@ section::before {
   .education-inside-container, 
   .projects-inside-container,
   .footer-inside-container  {
-    padding: 0 20px;
+    padding: 0 20px !important;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  h1 {
+    font-size: 1.25rem;
+    padding-top: 0;
+  }
+  .contact-icon-container i {
+    font-size: 1.75rem;
+    padding: 5px 15px;
+  }
+  .job-title {
+    padding: 0 20px 10px 20px;
+    font-size: 1rem;
+  }
+  .name-section {
+    display: flex;
+    flex-direction: column;
+    height: 230px;
+    position: relative;
+  }
+  .name-section-text {
+    display: flex;
+    align-items: center;
+  }
+  .name-section img {
+    width: 100px;
+    margin: 10px;
+  }
+  .project-image img {
+    width: 275px;
+    height: auto;
   }
 }
