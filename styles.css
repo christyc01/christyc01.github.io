@@ -415,3 +415,30 @@ section::before {
     height: auto;
   }
 }
+
+/****************** FOLLOW THE MOUSE *******************/
+#eating-head {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  background-color: rgba(126, 75, 115, 0.2);
+  border-radius: 50%;
+  z-index: 10;
+  pointer-events: none;
+  transition: 1s;
+  animation-name: munch;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes munch {
+  from {
+    clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%, 50% 50%, 50% 0%);
+    transform: translate(-100%, -50%) rotate(65deg);
+  }
+  to {
+    clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 50%, 50% 50%, 50% 0%);
+    transform: translate(-100%, -50%) rotate(45deg);
+  }
+}
