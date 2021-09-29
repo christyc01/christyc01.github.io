@@ -1,17 +1,17 @@
 /****************** GENERAL *******************/
 :root {
   --dark-grey: #484838;
-  --light-grey: #ADAC9A;
-  --light-green: #E0E484;
-  --dark-green: #8A9900;
-  --light-background: #FAFAF0;
+  --light-grey: #adac9a;
+  --light-green: #e0e484;
+  --dark-green: #8a9900;
+  --light-background: #fafaf0;
 }
 
 * {
   margin: 0;
   padding: 0;
   /* font-family: Arial, Helvetica, sans-serif; */
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   /* font-family: 'Roboto', sans-serif; */
   /* font-family: 'Poppins', sans-serif; */
   color: var(--dark-grey);
@@ -79,7 +79,7 @@ h2 {
 }
 
 .contact-icon-container i:hover {
-  color: var(--dark-green)
+  color: var(--dark-green);
 }
 
 /* Navigation */
@@ -92,6 +92,7 @@ h2 {
   font-size: 1.2rem;
 }
 
+/* COMMENTED OUT STUFF BELOW IS FOR A HORIZONTAL GRADUAL SHADING OF HOVERED BACKGROUND - PROBABLY DON'T WANT */
 .navigation li {
   padding: 3px 30px;
   margin-top: 1px;
@@ -99,13 +100,48 @@ h2 {
   margin-right: 20px;
   list-style: none;
   color: var(--dark-grey);
+  /* position: relative; */
+  transition: background-color 0.3s;
+  border-radius: 5px;
 }
+
+/* .navigation li::before,
+.active-link::before {
+  transform: scaleX(0);
+  transform-origin: bottom right;
+}
+
+.navigation li:hover::before,
+.active-link::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.navigation li:hover {
+  color: var(--light-background);
+}
+
+.navigation li::before,
+.active-link {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  inset: 0 0 0 0;
+  background: var(--dark-grey);
+  color: var(--light-background) !important;
+  z-index: -1;
+  transition: transform 0.3s ease;
+} */
 
 .active-link,
 .navigation li:hover {
+  border-radius: 5px;
   background-color: var(--dark-grey);
   color: var(--light-background) !important;
-  border-radius: 5px;
 }
 
 /****************** BODY SECTIONS *******************/
@@ -207,18 +243,18 @@ h2 {
   padding-bottom: 0;
 }
 
-.summary-inside-container, 
+.summary-inside-container,
 .projects-inside-container {
   height: 100%;
   background-color: var(--light-green);
   padding: 0 40px;
 }
 
-.projects-inside-container { 
+.projects-inside-container {
   border-top: 15px double var(--light-background);
 }
 
-.education-inside-container, 
+.education-inside-container,
 .footer-inside-container {
   height: 100%;
   background-color: var(--light-background);
@@ -256,8 +292,7 @@ section::before {
   }
 }
 
-@media screen and (max-width: 925px) 
-              and (orientation: landscape) {
+@media screen and (max-width: 925px) and (orientation: landscape) {
   .first-section {
     padding-top: 0px !important;
   }
@@ -281,8 +316,8 @@ section::before {
   .project-text {
     padding: 0;
   }
-  .summary-inside-container, 
-  .education-inside-container, 
+  .summary-inside-container,
+  .education-inside-container,
   .projects-inside-container {
     padding: 20px 40px !important;
   }
@@ -340,10 +375,10 @@ section::before {
   .project-text {
     padding: 0;
   }
-  .summary-inside-container, 
-  .education-inside-container, 
+  .summary-inside-container,
+  .education-inside-container,
   .projects-inside-container,
-  .footer-inside-container  {
+  .footer-inside-container {
     padding: 0 20px !important;
   }
 }
