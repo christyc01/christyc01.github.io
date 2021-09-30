@@ -6,7 +6,9 @@ const navigation = document.querySelector(".navigation");
 const summaryLink = document.querySelector(".summary-link");
 const educationLink = document.querySelector(".education-link");
 const projectsLink = document.querySelector(".projects-link");
+const snack = document.querySelectorAll(".snack");
 
+// Check if the element is in the viewport (for highlighting the correct nav link when scrolling)
 const isInViewport = function (elem) {
   const bounding = elem.getBoundingClientRect();
   return (
@@ -16,6 +18,7 @@ const isInViewport = function (elem) {
   );
 };
 
+// Highlight the correct nav link when scrolling
 document.getElementById("body").onscroll = function scrollEvent(e) {
   if (isInViewport(summary)) {
     summaryLink.classList.add("active-link");
@@ -32,6 +35,7 @@ document.getElementById("body").onscroll = function scrollEvent(e) {
   }
 };
 
+// Highlight the correct nav link when clicking it
 function makeActive(e) {
   summaryLink.classList.remove("active-link");
   educationLink.classList.remove("active-link");
@@ -47,17 +51,19 @@ function makeActive(e) {
   }
 }
 
+// Make the head follow the mouse around
 let eatingHead = document.getElementById("eating-head");
 const onMouseMove = (e) => {
   eatingHead.style.left = e.pageX + "px";
   eatingHead.style.top = e.pageY + "px";
 };
 
+// Record points collected (in local storage) and add special effects, oooh!
 let count = parseInt(localStorage.getItem("storedCount")) || 0;
 document.getElementById("count").innerText = parseInt(count);
 
 let addToCount = (e) => {
-  let objectWithPoints = document.querySelectorAll("h1, h2, p.project-title, i");
+  let objectWithPoints = document.querySelectorAll("i, .project-title a, .snack");
   let i;
   for (i = 0; i < objectWithPoints.length; i++) {
     if (e.target === objectWithPoints[i]) {
@@ -70,11 +76,15 @@ let addToCount = (e) => {
         setTimeout(function() {
           document.getElementById("special-effect-container").classList.remove("special-effect-toggle");
         }, 2000)
-      }, 7500
+      }, 500
       )
     }
   }
 }
+
+// Hide the snacks that are eaten
+snack.forEach(snack =>
+  snack.addEventListener("mouseover", () => snack.classList.add("hide-snack")))
 
 navigation.addEventListener("click", makeActive);
 document.addEventListener("mousemove", onMouseMove);

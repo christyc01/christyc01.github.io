@@ -24,7 +24,7 @@ h1 {
 }
 
 h2 {
-  padding: 20px 0 20px 0;
+  padding: 20px 30px 20px 0;
   font-size: 1.75rem;
 }
 
@@ -330,6 +330,9 @@ section::before {
     height: auto;
     margin-top: 10px;
   }
+  #snack2, #snack3, #snack4, #snack5 {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -426,7 +429,7 @@ section::before {
   border-radius: 50%;
   z-index: 10;
   pointer-events: none;
-  transition: 1s;
+  transition: 0.25s;
   animation-name: munch;
   animation-duration: 0.5s;
   animation-iteration-count: infinite;
@@ -436,10 +439,34 @@ section::before {
 @keyframes munch {
   from {
     clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%, 50% 50%, 50% 0%);
-    transform: translate(-100%, -50%) rotate(65deg);
+    transform: translate(-75%, -50%) rotate(65deg);
   }
   to {
     clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 50%, 50% 50%, 50% 0%);
-    transform: translate(-100%, -50%) rotate(45deg);
+    transform: translate(-75%, -50%) rotate(45deg);
   }
+}
+
+.h2-container {
+  display: flex;
+}
+
+.snacks {
+  overflow: hidden;
+  display: flex;
+  align-self: center;
+}
+
+.snack {
+  width: 20px;
+  height: 20px;
+  background-color: palevioletred;
+  margin: 10px 20px 10px 20px;
+  border-radius: 50%;
+}
+
+.hide-snack {
+  background-color: transparent;
+  transform: translateY(-15px);
+  transition: 0.5s;
 }
