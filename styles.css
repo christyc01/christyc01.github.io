@@ -144,6 +144,10 @@ h2 {
   color: var(--light-background) !important;
 }
 
+.points-container {
+  padding-top: 20px;
+}
+
 /****************** BODY SECTIONS *******************/
 .emoji {
   text-shadow: 0px 0px 3px black;

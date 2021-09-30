@@ -47,11 +47,31 @@ function makeActive(e) {
   }
 }
 
-navigation.addEventListener("click", makeActive);
-
 let eatingHead = document.getElementById("eating-head");
 const onMouseMove = (e) => {
   eatingHead.style.left = e.pageX + "px";
   eatingHead.style.top = e.pageY + "px";
 };
+
+let count = parseInt(localStorage.getItem("storedCount")) || 0;
+document.getElementById("count").innerText = parseInt(count);
+
+let addToCount = (e) => {
+  let objectWithPoints = document.querySelectorAll("h1, h2, p.project-title, i");
+  let i;
+  for (i = 0; i < objectWithPoints.length; i++) {
+    if (e.target === objectWithPoints[i]) {
+      setTimeout(function() {
+        count = count+1;
+        localStorage.setItem("storedCount", count);
+        console.log("stored", localStorage.getItem("storedCount"))
+        document.getElementById("count").innerText = parseInt(count);
+      }, 7500
+      )
+    }
+  }
+}
+
+navigation.addEventListener("click", makeActive);
 document.addEventListener("mousemove", onMouseMove);
+document.addEventListener("mouseover", addToCount);
