@@ -492,7 +492,7 @@ section::before {
   height: 20px;
   width: 100px;
   padding: 10px;
-  border-radius: 10px 0 0 10px;
+  border-radius: 50px 0 0 50px;
 }
 
 .special-effect-toggle {
