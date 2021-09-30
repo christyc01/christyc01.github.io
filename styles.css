@@ -92,7 +92,6 @@ h2 {
   font-size: 1.2rem;
 }
 
-/* COMMENTED OUT STUFF BELOW IS FOR A HORIZONTAL GRADUAL SHADING OF HOVERED BACKGROUND - PROBABLY DON'T WANT */
 .navigation li {
   padding: 3px 30px;
   margin-top: 1px;
@@ -100,42 +99,9 @@ h2 {
   margin-right: 20px;
   list-style: none;
   color: var(--dark-grey);
-  /* position: relative; */
   transition: background-color 0.3s;
   border-radius: 5px;
 }
-
-/* .navigation li::before,
-.active-link::before {
-  transform: scaleX(0);
-  transform-origin: bottom right;
-}
-
-.navigation li:hover::before,
-.active-link::before {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
-
-.navigation li:hover {
-  color: var(--light-background);
-}
-
-.navigation li::before,
-.active-link {
-  content: " ";
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  inset: 0 0 0 0;
-  background: var(--dark-grey);
-  color: var(--light-background) !important;
-  z-index: -1;
-  transition: transform 0.3s ease;
-} */
 
 .active-link,
 .navigation li:hover {
@@ -146,6 +112,35 @@ h2 {
 
 .points-container {
   padding-top: 20px;
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+}
+
+#special-effect-container {
+  position: absolute;
+  bottom: 0;
+  right: 0px;
+  height: 20px;
+  width: 100px;
+  padding: 10px;
+  border-radius: 10px 0 0 10px;
+}
+
+.special-effect-toggle {
+  position: absolute;
+  bottom: 30px;
+  transition: 1s;
+  background-color: hsl(340, 57%, 94%);
+  animation-name: special-effect-animation;
+  animation-duration: 0.15s;
+  animation-direction: alternate-reverse;
+  animation-iteration-count: infinite;
+}
+
+@keyframes special-effect-animation {
+  from {box-shadow: palevioletred 0px 0px 10px 10px;}
+  to {box-shadow: palevioletred 0px 0px 25px 25px;}
 }
 
 /****************** BODY SECTIONS *******************/
@@ -216,8 +211,8 @@ h2 {
 
 .project-text a {
   text-decoration: none;
-  color: var(--dark-grey);
-  background-color: var(--light-green);
+  color: var(--light-background);
+  background-color: var(--dark-green);
   border-radius: 5px;
   padding: 3px;
   margin: 1px;

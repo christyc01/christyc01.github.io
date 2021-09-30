@@ -66,6 +66,10 @@ let addToCount = (e) => {
         localStorage.setItem("storedCount", count);
         console.log("stored", localStorage.getItem("storedCount"))
         document.getElementById("count").innerText = parseInt(count);
+        document.getElementById("special-effect-container").classList.add("special-effect-toggle");
+        setTimeout(function() {
+          document.getElementById("special-effect-container").classList.remove("special-effect-toggle");
+        }, 2000)
       }, 7500
       )
     }
