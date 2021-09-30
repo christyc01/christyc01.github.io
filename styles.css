@@ -460,12 +460,14 @@ section::before {
   overflow: hidden;
   display: flex;
   align-self: center;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .snack {
   width: 20px;
   height: 20px;
-  background-color: palevioletred;
+  background-color: hsl(340, 57%, 74%);
   margin: 10px 20px 10px 20px;
   border-radius: 50%;
 }
