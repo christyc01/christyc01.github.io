@@ -70,7 +70,7 @@ let addToCount = (e) => {
       setTimeout(function() {
         count = count+1;
         localStorage.setItem("storedCount", count);
-        console.log("stored", localStorage.getItem("storedCount"))
+        // console.log("stored", localStorage.getItem("storedCount"))
         document.getElementById("count").innerText = parseInt(count);
         document.getElementById("special-effect-container").classList.add("special-effect-toggle");
         setTimeout(function() {
