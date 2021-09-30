@@ -110,39 +110,6 @@ h2 {
   color: var(--light-background) !important;
 }
 
-.points-container {
-  padding-top: 20px;
-  position: absolute;
-  bottom: 10px;
-  right: 15px;
-}
-
-#special-effect-container {
-  position: absolute;
-  bottom: 0;
-  right: 0px;
-  height: 20px;
-  width: 100px;
-  padding: 10px;
-  border-radius: 10px 0 0 10px;
-}
-
-.special-effect-toggle {
-  position: absolute;
-  bottom: 30px;
-  transition: 1s;
-  background-color: hsl(340, 57%, 94%);
-  animation-name: special-effect-animation;
-  animation-duration: 0.15s;
-  animation-direction: alternate-reverse;
-  animation-iteration-count: infinite;
-}
-
-@keyframes special-effect-animation {
-  from {box-shadow: palevioletred 0px 0px 10px 10px;}
-  to {box-shadow: palevioletred 0px 0px 25px 25px;}
-}
-
 /****************** BODY SECTIONS *******************/
 .emoji {
   text-shadow: 0px 0px 3px black;
@@ -279,7 +246,26 @@ section::before {
 }
 
 /****************** RESPONSIVENESS *******************/
+@media screen and (max-width: 1200px) {
+  #snack14, #snack15 {
+    display: none;
+  }
+}
+@media screen and (max-width: 1100px) {
+  #snack12, #snack13 {
+    display: none;
+  }
+}
+@media screen and (max-width: 1000px) {
+  #snack10, #snack11 {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 925px) {
+  #snack8, #snack9 {
+    display: none;
+  }
   .individual-project {
     grid-template-columns: 1fr;
     justify-items: center;
@@ -292,7 +278,6 @@ section::before {
   }
 }
 
-/* @media screen and (max-width: 925px) and (orientation: landscape) { */
 @media screen and (max-height: 560px) {
   .first-section {
     padding-top: 0px !important;
@@ -303,6 +288,9 @@ section::before {
 }
 
 @media screen and (max-width: 700px) {
+  #snack6, #snack7 {
+    display: none;
+  }
   .individual-project {
     padding: 20px 0;
   }
@@ -330,7 +318,7 @@ section::before {
     height: auto;
     margin-top: 10px;
   }
-  #snack2, #snack3, #snack4, #snack5 {
+  #snack4, #snack5 {
     display: none;
   }
 }
@@ -339,6 +327,9 @@ section::before {
   h1 {
     font-size: 1.5rem;
     padding-top: 0;
+  }
+  #snack2, #snack3 {
+    display: none;
   }
   .contact-icon-container i {
     font-size: 2rem;
@@ -367,6 +358,20 @@ section::before {
   .name-section img {
     width: 100px;
     margin: 10px;
+  }
+  .points-container {
+    /* z-index: -1; */
+    position: absolute;
+    top: 0;
+    right: 15px;
+    padding-top: 5px !important;
+  }
+  #special-effect-container {
+    top: 0;
+    height: 10px !important;
+  }
+  .special-effect-toggle {
+    top: 10px;
   }
   .projects-inside-container {
     padding-left: 10px !important;
@@ -469,4 +474,37 @@ section::before {
   background-color: transparent;
   transform: translateY(-15px);
   transition: 0.5s;
+}
+
+.points-container {
+  padding-top: 20px;
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+}
+
+#special-effect-container {
+  position: absolute;
+  bottom: 0;
+  right: 0px;
+  height: 20px;
+  width: 100px;
+  padding: 10px;
+  border-radius: 10px 0 0 10px;
+}
+
+.special-effect-toggle {
+  position: absolute;
+  bottom: 30px;
+  transition: 1s;
+  background-color: hsl(340, 57%, 94%);
+  animation-name: special-effect-animation;
+  animation-duration: 0.15s;
+  animation-direction: alternate-reverse;
+  animation-iteration-count: infinite;
+}
+
+@keyframes special-effect-animation {
+  from {box-shadow: palevioletred 0px 0px 10px 10px;}
+  to {box-shadow: palevioletred 0px 0px 25px 25px;}
 }
