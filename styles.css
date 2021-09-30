@@ -183,7 +183,7 @@ h2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 40px 0;
-  border-bottom: 5px solid var(--light-background);
+  border-bottom: 5px solid var(--light-green);
 }
 
 .individual-project:first-child {
@@ -216,8 +216,8 @@ h2 {
 
 .project-text a {
   text-decoration: none;
-  color: var(--light-background);
-  background-color: var(--dark-green);
+  color: var(--dark-grey);
+  background-color: var(--light-green);
   border-radius: 5px;
   padding: 3px;
   margin: 1px;
@@ -226,6 +226,7 @@ h2 {
 
 .project-text a:hover {
   color: var(--light-green);
+  background-color: var(--dark-green);
 }
 
 .project-title {
@@ -248,17 +249,17 @@ h2 {
 }
 
 .summary-inside-container,
-.projects-inside-container {
+.education-inside-container {
   height: 100%;
   background-color: var(--light-green);
   padding: 0 40px;
 }
 
-.projects-inside-container {
+.education-inside-container {
   border-top: 15px double var(--light-background);
 }
 
-.education-inside-container,
+.projects-inside-container,
 .footer-inside-container {
   height: 100%;
   background-color: var(--light-background);
