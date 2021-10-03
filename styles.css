@@ -360,7 +360,6 @@ section::before {
     margin: 10px;
   }
   .points-container {
-    /* z-index: -1; */
     position: absolute;
     top: 0;
     right: 15px;
@@ -507,6 +506,6 @@ section::before {
 }
 
 @keyframes special-effect-animation {
-  from {box-shadow: palevioletred 0px 0px 10px 10px;}
-  to {box-shadow: palevioletred 0px 0px 25px 25px;}
+  from {box-shadow: palevioletred 0px 0px 10px 5px;}
+  to {box-shadow: palevioletred 0px 0px 20px 10px;}
 }
