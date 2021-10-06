@@ -7,6 +7,7 @@ const summaryLink = document.querySelector(".summary-link");
 const educationLink = document.querySelector(".education-link");
 const projectsLink = document.querySelector(".projects-link");
 const snack = document.querySelectorAll(".snack");
+const pointsContainer = document.querySelector(".points-container");
 
 // Check if the element is in the viewport (for highlighting the correct nav link when scrolling)
 const isInViewport = function (elem) {
@@ -51,6 +52,14 @@ function makeActive(e) {
   }
 }
 
+let inGameMode = true;
+if (!inGameMode) {
+  snack.forEach(snack =>
+    snack.classList.add("hide-game-items"));
+  pointsContainer.classList.add("hide-game-items");
+}
+
+if (inGameMode) {
 // Make the head follow the mouse around
 let eatingHead = document.getElementById("eating-head");
 const onMouseMove = (e) => {
@@ -84,8 +93,10 @@ let addToCount = (e) => {
 
 // Hide the snacks that are eaten
 snack.forEach(snack =>
-  snack.addEventListener("mouseover", () => snack.classList.add("hide-snack")))
+  snack.addEventListener("mouseover", () => snack.classList.add("hide-eaten-snack")))
 
-navigation.addEventListener("click", makeActive);
 document.addEventListener("mousemove", onMouseMove);
 document.addEventListener("mouseover", addToCount);
+}
+
+navigation.addEventListener("click", makeActive);
