@@ -145,7 +145,8 @@ h2 {
 
 .individual-project {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: auto auto;
+  justify-content: flex-start;
   padding: 40px 0;
   border-bottom: 5px solid var(--light-green);
 }
@@ -272,13 +273,10 @@ section::before {
   }
   .individual-project {
     grid-template-columns: 1fr;
-    justify-items: center;
+    padding: 40px 40px;
   }
   .project-title {
     padding-top: 20px;
-  }
-  .individual-project {
-    padding: 40px 40px;
   }
 }
 
