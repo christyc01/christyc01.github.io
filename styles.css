@@ -85,6 +85,8 @@ h2 {
 /* Navigation */
 .navigation {
   margin-left: auto;
+  height: 100%;
+  align-items: flex-start;
 }
 
 .navigation a {
@@ -184,6 +186,8 @@ h2 {
   padding: 3px;
   margin: 1px;
   font-weight: normal;
+  white-space: nowrap;
+
 }
 
 .project-text a:hover {
@@ -359,7 +363,7 @@ section::before {
     width: 100px;
     margin: 10px;
   }
-  .points-container {
+  .points-and-toggle-container {
     position: absolute;
     top: 0;
     right: 15px;
@@ -489,11 +493,12 @@ section::before {
   transition: 0.5s;
 }
 
-.points-container {
+.points-and-toggle-container {
   padding-top: 20px;
   position: absolute;
-  bottom: 10px;
+  bottom: 5px;
   right: 15px;
+  text-align: right;
 }
 
 #special-effect-container {
@@ -502,15 +507,15 @@ section::before {
   right: 0px;
   height: 20px;
   width: 100px;
-  padding: 10px;
+  padding: 5px;
   border-radius: 50px 0 0 50px;
+  z-index: 5;
 }
 
 .special-effect-toggle {
   position: absolute;
   bottom: 30px;
   transition: 1s;
-  background-color: hsl(340, 57%, 94%);
   animation-name: special-effect-animation;
   animation-duration: 0.15s;
   animation-direction: alternate-reverse;
@@ -528,7 +533,8 @@ section::before {
   position: relative;
   display: inline-block;
   width: 50px;
-  height: 25px;
+  height: 26px;
+  margin-bottom: 6px;
 }
 
 .switch input { 
@@ -542,9 +548,9 @@ section::before {
   cursor: pointer;
   top: 0;
   left: 0;
-  right: 0;
+  right: 3px;
   bottom: 0;
-  background-color: #ccc;
+  background-color: var(--light-grey);
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -554,7 +560,7 @@ section::before {
   content: "";
   height: 20px;
   width: 20px;
-  left: 2px;
+  left: 3px;
   bottom: 3px;
   background-color: white;
   -webkit-transition: .4s;
@@ -578,7 +584,7 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
 }

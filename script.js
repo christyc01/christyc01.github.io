@@ -8,6 +8,9 @@ const educationLink = document.querySelector(".education-link");
 const projectsLink = document.querySelector(".projects-link");
 const snack = document.querySelectorAll(".snack");
 const pointsContainer = document.querySelector(".points-container");
+const gameToggle = document.getElementById("game-toggle");
+const specialEffectContainer = document.getElementById("special-effect-container");
+const eatingHead = document.getElementById("eating-head");
 
 // Check if the element is in the viewport (for highlighting the correct nav link when scrolling)
 const isInViewport = function (elem) {
@@ -52,51 +55,68 @@ function makeActive(e) {
   }
 }
 
-let inGameMode = true;
-if (!inGameMode) {
-  snack.forEach(snack =>
-    snack.classList.add("hide-game-items"));
-  pointsContainer.classList.add("hide-game-items");
-}
-
-if (inGameMode) {
-// Make the head follow the mouse around
-let eatingHead = document.getElementById("eating-head");
-const onMouseMove = (e) => {
-  eatingHead.style.left = e.pageX + "px";
-  eatingHead.style.top = e.pageY + "px";
-};
-
-// Record points collected (in local storage) and add special effects, oooh!
-let count = parseInt(localStorage.getItem("storedCount")) || 0;
-document.getElementById("count").innerText = parseInt(count);
-
-let addToCount = (e) => {
-  let objectWithPoints = document.querySelectorAll("i, .project-title a, .snack");
-  let i;
-  for (i = 0; i < objectWithPoints.length; i++) {
-    if (e.target === objectWithPoints[i]) {
-      setTimeout(function() {
-        count = count+1;
-        localStorage.setItem("storedCount", count);
-        // console.log("stored", localStorage.getItem("storedCount"))
-        document.getElementById("count").innerText = parseInt(count);
-        document.getElementById("special-effect-container").classList.add("special-effect-toggle");
-        setTimeout(function() {
-          document.getElementById("special-effect-container").classList.remove("special-effect-toggle");
-        }, 2000)
-      }, 500
-      )
-    }
+// Toggle game mode (if checked or not)
+const toggleGameMode = () => {
+  if (gameToggle.checked) {
+    activateGameMode();
+  } else {
+    stopGameMode();
   }
 }
 
-// Hide the snacks that are eaten
-snack.forEach(snack =>
-  snack.addEventListener("mouseover", () => snack.classList.add("hide-eaten-snack")))
-
-document.addEventListener("mousemove", onMouseMove);
-document.addEventListener("mouseover", addToCount);
+const stopGameMode = () => {
+    snack.forEach(snack =>
+      snack.classList.add("hide-game-items"));
+    pointsContainer.classList.add("hide-game-items");
+    specialEffectContainer.classList.add("hide-game-items");
+    eatingHead.classList.add("hide-game-items");
+  // }
 }
 
+const activateGameMode = () => {
+  snack.forEach(snack =>
+    snack.classList.remove("hide-game-items"));
+  pointsContainer.classList.remove("hide-game-items");
+  specialEffectContainer.classList.remove("hide-game-items");
+  eatingHead.classList.remove("hide-game-items");
+  // Make the head follow the mouse around
+  const onMouseMove = (e) => {
+    eatingHead.style.left = e.pageX + "px";
+    eatingHead.style.top = e.pageY + "px";
+  };
+
+  // Record points collected (in local storage) and add special effects, oooh!
+  let count = parseInt(localStorage.getItem("storedCount")) || 0;
+  document.getElementById("count").innerText = parseInt(count);
+
+  let addToCount = (e) => {
+    let objectWithPoints = document.querySelectorAll("i, .project-title a, .snack");
+    let i;
+    for (i = 0; i < objectWithPoints.length; i++) {
+      if (e.target === objectWithPoints[i]) {
+        setTimeout(function() {
+          count = count+1;
+          localStorage.setItem("storedCount", count);
+          document.getElementById("count").innerText = parseInt(count);
+          document.getElementById("special-effect-container").classList.add("special-effect-toggle");
+          setTimeout(function() {
+            document.getElementById("special-effect-container").classList.remove("special-effect-toggle");
+          }, 2000)
+        }, 500
+        )
+      }
+    }
+  }
+
+  // Hide the snacks that are eaten
+  snack.forEach(snack =>
+    snack.addEventListener("mouseover", () => snack.classList.add("hide-eaten-snack")))
+
+  document.addEventListener("mousemove", onMouseMove);
+  document.addEventListener("mouseover", addToCount);
+}
+
+activateGameMode();
+
 navigation.addEventListener("click", makeActive);
+gameToggle.addEventListener('change', toggleGameMode);
