@@ -74,6 +74,7 @@ const stopGameMode = () => {
 }
 
 const activateGameMode = () => {
+  gameToggle.checked = true;
   snack.forEach(snack =>
     snack.classList.remove("hide-game-items"));
   pointsContainer.classList.remove("hide-game-items");
