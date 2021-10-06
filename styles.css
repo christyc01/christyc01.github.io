@@ -288,6 +288,9 @@ section::before {
 }
 
 @media screen and (max-width: 700px) {
+  h2 {
+    padding-right: 5px;
+  }
   #snack6, #snack7 {
     display: none;
   }
@@ -327,9 +330,6 @@ section::before {
   h1 {
     font-size: 1.5rem;
     padding-top: 0;
-  }
-  #snack2, #snack3 {
-    display: none;
   }
   .contact-icon-container i {
     font-size: 2rem;
@@ -421,6 +421,12 @@ section::before {
   .project-image img {
     width: 275px;
     height: auto;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  #snack2, #snack3 {
+    display: none;
   }
 }
 
