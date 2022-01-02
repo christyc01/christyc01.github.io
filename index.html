@@ -358,9 +358,13 @@
 
     <footer class="section footer" id="footer">
       <div class="footer-inside-container">
-        <small>&copy; 2021 Christy Clement</small>
+        <small>&copy; 2021 - <span id="year"></span> Christy Clement</small>
       </div>
     </footer>
+    <script>
+      const year = new Date().getFullYear();
+      document.getElementById("year").innerText = year;
+      </script>
     <script src="script.js"></script>
   </body>
 </html>
