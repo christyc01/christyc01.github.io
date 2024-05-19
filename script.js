@@ -13,6 +13,7 @@ const specialEffectContainer = document.getElementById(
   'special-effect-container'
 );
 const eatingHead = document.getElementById('eating-head');
+const snacksTest = document.getElementById('snacks-test');
 
 // Check if the element is in the viewport (for highlighting the correct nav link when scrolling)
 const isInViewport = function (elem) {
@@ -114,11 +115,24 @@ const activateGameMode = () => {
     }
   };
 
+  const hideSnack = (snack) => {
+    snack.classList.add('hide-eaten-snack');
+  };
+
+  const createSnack = () => {
+    const newSnack = document.createElement('div');
+    newSnack.classList.add('snack');
+    newSnack.addEventListener('mouseover', () => hideSnack(newSnack));
+    snacksTest.appendChild(newSnack);
+  };
+
+  for (let i = 0; i < 10; i++) {
+    createSnack();
+  }
+
   // Hide the snacks that are eaten
   snack.forEach((snack) =>
-    snack.addEventListener('mouseover', () =>
-      snack.classList.add('hide-eaten-snack')
-    )
+    snack.addEventListener('mouseover', () => hideSnack(snack))
   );
 
   document.addEventListener('mousemove', onMouseMove);
