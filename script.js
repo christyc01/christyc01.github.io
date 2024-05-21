@@ -72,7 +72,6 @@ const stopGameMode = () => {
   pointsContainer.classList.add('hide-game-items');
   specialEffectContainer.classList.add('hide-game-items');
   eatingHead.classList.add('hide-game-items');
-  // }
 };
 
 const activateGameMode = () => {
@@ -115,25 +114,29 @@ const activateGameMode = () => {
     }
   };
 
+  // Dynamically create snacks based on the available width
+  const createSnacksDynamically = () => {
+    snacksTest.innerHTML = '';
+    const containerWidth = snacksTest.clientWidth;
+    const snackWidth = 60;
+    const numberOfSnacks = Math.floor(containerWidth / snackWidth);
+    for (let i = 0; i < numberOfSnacks; i++) {
+      const newSnack = document.createElement('div');
+      newSnack.classList.add('snack');
+      newSnack.addEventListener('mouseover', () => hideSnack(newSnack));
+      snacksTest.appendChild(newSnack);
+    }
+  };
+
+  createSnacksDynamically();
+
+  // Recalculate snacks on window resize
+  window.addEventListener('resize', createSnacksDynamically);
+
+  // Hide the snacks that are eaten
   const hideSnack = (snack) => {
     snack.classList.add('hide-eaten-snack');
   };
-
-  const createSnack = () => {
-    const newSnack = document.createElement('div');
-    newSnack.classList.add('snack');
-    newSnack.addEventListener('mouseover', () => hideSnack(newSnack));
-    snacksTest.appendChild(newSnack);
-  };
-
-  for (let i = 0; i < 10; i++) {
-    createSnack();
-  }
-
-  // Hide the snacks that are eaten
-  snack.forEach((snack) =>
-    snack.addEventListener('mouseover', () => hideSnack(snack))
-  );
 
   document.addEventListener('mousemove', onMouseMove);
   document.addEventListener('mouseover', addToCount);
