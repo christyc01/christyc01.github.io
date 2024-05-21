@@ -116,16 +116,19 @@ const activateGameMode = () => {
 
   // Dynamically create snacks based on the available width
   const createSnacksDynamically = () => {
-    snacksTest.innerHTML = '';
-    const containerWidth = snacksTest.clientWidth;
-    const snackWidth = 60;
-    const numberOfSnacks = Math.floor(containerWidth / snackWidth);
-    for (let i = 0; i < numberOfSnacks; i++) {
-      const newSnack = document.createElement('div');
-      newSnack.classList.add('snack');
-      newSnack.addEventListener('mouseover', () => hideSnack(newSnack));
-      snacksTest.appendChild(newSnack);
-    }
+    const snacksContainers = document.querySelectorAll('.snacks');
+    snacksContainers.forEach((snacksContainer) => {
+      const containerWidth = snacksContainer.clientWidth;
+      const snackWidth = 60;
+      const numberOfSnacks = Math.floor(containerWidth / snackWidth);
+      snacksContainer.innerHTML = '';
+      for (let i = 0; i < numberOfSnacks; i++) {
+        const newSnack = document.createElement('div');
+        newSnack.classList.add('snack');
+        newSnack.addEventListener('mouseover', () => hideSnack(newSnack));
+        snacksContainer.appendChild(newSnack);
+      }
+    });
   };
 
   createSnacksDynamically();
