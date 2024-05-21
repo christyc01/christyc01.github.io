@@ -6,7 +6,6 @@ const navigation = document.querySelector('.navigation');
 const summaryLink = document.querySelector('.summary-link');
 const educationLink = document.querySelector('.education-link');
 const projectsLink = document.querySelector('.projects-link');
-const snack = document.querySelectorAll('.snack');
 const pointsContainer = document.querySelector('.points-container');
 const gameToggle = document.getElementById('game-toggle');
 const specialEffectContainer = document.getElementById(
@@ -67,15 +66,17 @@ const toggleGameMode = () => {
 };
 
 const stopGameMode = () => {
-  snack.forEach((snack) => snack.classList.add('hide-game-items'));
+  const snacks = document.querySelectorAll('.snack');
+  snacks.forEach((snack) => snack.classList.add('hide-game-items'));
   pointsContainer.classList.add('hide-game-items');
   specialEffectContainer.classList.add('hide-game-items');
   eatingHead.classList.add('hide-game-items');
 };
 
 const activateGameMode = () => {
+  const snacks = document.querySelectorAll('.snack');
   gameToggle.checked = true;
-  snack.forEach((snack) => snack.classList.remove('hide-game-items'));
+  snacks.forEach((snack) => snack.classList.remove('hide-game-items'));
   pointsContainer.classList.remove('hide-game-items');
   specialEffectContainer.classList.remove('hide-game-items');
   eatingHead.classList.remove('hide-game-items');
