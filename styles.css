@@ -246,30 +246,8 @@ section::before {
 }
 
 /****************** RESPONSIVENESS *******************/
-@media screen and (max-width: 1200px) {
-  #snack14,
-  #snack15 {
-    display: none;
-  }
-}
-@media screen and (max-width: 1100px) {
-  #snack12,
-  #snack13 {
-    display: none;
-  }
-}
-@media screen and (max-width: 1000px) {
-  #snack10,
-  #snack11 {
-    display: none;
-  }
-}
 
 @media screen and (max-width: 925px) {
-  #snack8,
-  #snack9 {
-    display: none;
-  }
   .individual-project {
     grid-template-columns: 1fr;
     padding: 40px 40px;
@@ -291,10 +269,6 @@ section::before {
 @media screen and (max-width: 700px) {
   h2 {
     padding-right: 5px;
-  }
-  #snack6,
-  #snack7 {
-    display: none;
   }
   .individual-project {
     padding: 20px 0;
@@ -321,10 +295,6 @@ section::before {
   h1 {
     font-size: 1.5rem;
     padding-top: 0;
-  }
-  #snack4,
-  #snack5 {
-    display: none;
   }
   .contact-icon-container {
     padding: 0 20px 20px 20px;
@@ -439,13 +409,6 @@ section::before {
   .project-image img {
     width: 275px;
     height: auto;
-  }
-}
-
-@media screen and (max-width: 350px) {
-  #snack2,
-  #snack3 {
-    display: none;
   }
 }
 
