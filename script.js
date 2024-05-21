@@ -13,7 +13,6 @@ const specialEffectContainer = document.getElementById(
   'special-effect-container'
 );
 const eatingHead = document.getElementById('eating-head');
-const snacksTest = document.getElementById('snacks-test');
 
 // Check if the element is in the viewport (for highlighting the correct nav link when scrolling)
 const isInViewport = function (elem) {
